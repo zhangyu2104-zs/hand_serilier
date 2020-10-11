@@ -3,7 +3,7 @@
 
 #include <QQuickItem>
 #include <QDebug>
-
+#include "qRedis.h"
 
 
 class QMLRedisInterface : public QQuickItem
@@ -17,7 +17,7 @@ public:
 
     //通过Q_INVOKABLE宏标记的public函数可以在QML中访问
      Q_INVOKABLE void init(); //初始化 redis接口
-     Q_INVOKABLE QVariant get(const QString key) const;
+     Q_INVOKABLE QVariant get(const QString& key) const;
 
 signals:
      void serverUrlChanged(const QString& value);
@@ -28,9 +28,7 @@ public slots:
 private:
        QString _serverUrl;
 
-       // RedisInterface* _redisInterface;
-//       RedisTool* _redisTool;
-
+       qRedis *redis;
 };
 
 QML_DECLARE_TYPE(QMLRedisInterface)

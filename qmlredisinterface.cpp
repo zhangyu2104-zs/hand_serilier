@@ -1,5 +1,7 @@
 #include "qmlredisinterface.h"
-
+#include <iostream>
+#include <stdio.h>
+using namespace std;
 QMLRedisInterface::QMLRedisInterface()
 {
 
@@ -7,9 +9,19 @@ QMLRedisInterface::QMLRedisInterface()
 
 void QMLRedisInterface::init()
 {
-    //_redisInterface = new RedisInterface(serverUrl(), this);
-   //  _redisTool = new RedisTool();
+
+    redis = new qRedis("127.0.0.1",6379);
      qDebug() << "[QMLRedisInterface] init() is ok";
+     qRedis::Reply reply;
+
+     if (!redis->openConnection())
+     {
+         qDebug() << "Could not connect to server...";
+         exit(0);
+     }
+
+     qDebug() << "Connected to server...";
+
 }
 
 QString QMLRedisInterface::serverUrl() const
@@ -26,16 +38,15 @@ void QMLRedisInterface::setServerUrl(const QString& value)
     }
 }
 
-QVariant QMLRedisInterface::get(const QString key) const
+  QVariant QMLRedisInterface::get(const QString& key) const
 {
     if(this->isComponentComplete())
        // return _redisInterface->get(key);
-//       string sss = key.toStdWString();
-
-//        string rely= _redisTool->getString(sss);
-//         QString qstr2 = QString::fromStdString(rely);
-//         return qstr2;
-
-    return QVariant();
+    //    return redis->get("key");
+  //  return QVariant();
+     qDebug() << "GET:" << redis->get(key);
+     qDebug() << "gey";
+    // cout<<redis->get(key)<<endl;
+        return redis->get(key);;
 
 }

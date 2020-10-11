@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.VirtualKeyboard 2.4
+import QtQuick.Controls 1.2
 import Redis 1.0
 
 Window {
@@ -11,25 +12,33 @@ Window {
     title: qsTr("Hello World")
 
 
- RedisInterface{
-     id: redis
-     serverUrl: "127.0.0.1:6379"
-     width: 800
-     height: 600
 
+      RedisInterface{
+          id: redis
+          serverUrl: "127.0.0.1:6379"
+          width: 800
+          height: 600
+       Component.onCompleted:init();
 
-     Component.onCompleted: init();
-
- }
+      }
+  Button{
+             width: 100
+             height: 30
+             text: qsTr("点击")
+             onClicked: {
+                text = redis.get("lihaoran");
+             }
+         }
 
  Text {
-     id: name
+     id: text1
      text:
      {
-       // "hello world" + redis.get("lihaoran");
+        //"hello world----";
 
      }
  }
+
 
     InputPanel {
         id: inputPanel
