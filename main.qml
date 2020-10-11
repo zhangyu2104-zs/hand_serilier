@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.VirtualKeyboard 2.4
+import Redis 1.0
 
 Window {
     id: window
@@ -8,6 +9,27 @@ Window {
     width: 640
     height: 480
     title: qsTr("Hello World")
+
+
+ RedisInterface{
+     id: redis
+     serverUrl: "127.0.0.1:6379"
+     width: 800
+     height: 600
+
+
+     Component.onCompleted: init();
+
+ }
+
+ Text {
+     id: name
+     text:
+     {
+       // "hello world" + redis.get("lihaoran");
+
+     }
+ }
 
     InputPanel {
         id: inputPanel
