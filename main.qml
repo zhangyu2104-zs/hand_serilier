@@ -31,10 +31,12 @@ Window {
          }
 
  Text {
+     width: 100
+     height: 30
      id: text1
      text:
      {
-        //"hello world----";
+        "hello world----";
 
      }
  }

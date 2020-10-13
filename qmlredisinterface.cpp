@@ -38,14 +38,14 @@ void QMLRedisInterface::setServerUrl(const QString& value)
     }
 }
 
-  QVariant QMLRedisInterface::get(const QString& key) const
+  Q_INVOKABLE QVariant QMLRedisInterface::get(const QString& key) const
 {
     if(this->isComponentComplete())
        // return _redisInterface->get(key);
     //    return redis->get("key");
   //  return QVariant();
      qDebug() << "GET:" << redis->get(key);
-     qDebug() << "gey";
+
     // cout<<redis->get(key)<<endl;
         return redis->get(key);;
 
