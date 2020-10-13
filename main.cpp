@@ -20,6 +20,7 @@ void MyThread::run()
         qmlredis.init();
         QVariant tempdata;
        tempdata = qmlredis.get("lihaoran");
+       qmlredis.setValue(tempdata.toString());
      //  qmlredis.setServerUrl(tempdata);
        qDebug() << "thread id :" << QThread::currentThreadId();
       sleep(1);
@@ -48,7 +49,7 @@ int main(int argc, char *argv[])
     engine.load(url);
 
     MyThread thread;
-    thread.start();
+   // thread.start();
 
     return app.exec();
 }

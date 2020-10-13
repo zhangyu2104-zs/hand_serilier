@@ -1,9 +1,18 @@
 #include "qmlredisinterface.h"
 #include <iostream>
 #include <stdio.h>
+#include <QTimer>
+
 using namespace std;
 QMLRedisInterface::QMLRedisInterface()
 {
+    m_startValue = 0;
+    m_endValue = 1000;
+
+    m_timer = new QTimer;
+    connect(m_timer, SIGNAL(timeout()), this, SLOT(addValueTimeout()));
+
+    m_timer->start(5);
 
 }
 
@@ -41,12 +50,38 @@ void QMLRedisInterface::setServerUrl(const QString& value)
   Q_INVOKABLE QVariant QMLRedisInterface::get(const QString& key) const
 {
     if(this->isComponentComplete())
-       // return _redisInterface->get(key);
-    //    return redis->get("key");
-  //  return QVariant();
+
      qDebug() << "GET:" << redis->get(key);
 
-    // cout<<redis->get(key)<<endl;
         return redis->get(key);;
 
+}
+
+ QString QMLRedisInterface::value() const
+{
+     qDebug() << "value--:" << _value;
+    return _value;
+}
+
+void QMLRedisInterface::setValue(const QString &value)
+{
+    if(this->_value != value) {
+        this->_value = value;
+        emit valueChanged();
+    }
+
+}
+
+int QMLRedisInterface::getCurrentValue()
+{
+    return ((double)m_startValue / (double)m_endValue) * 10;
+}
+
+void QMLRedisInterface::addValueTimeout()
+{
+   m_startValue++;
+//    if(m_startValue >= m_endValue){
+
+//        m_timer->stop();
+//    }
 }

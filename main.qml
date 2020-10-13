@@ -9,7 +9,7 @@ Window {
     visible: true
     width: 640
     height: 480
-    title: qsTr("Hello World")
+    title: qsTr("test")
 
 
 
@@ -20,15 +20,49 @@ Window {
           height: 600
        Component.onCompleted:init();
 
+
+       Label {
+
+           id: label2
+           objectName: "objNameL2"
+           x: 202
+           y: 91
+           width: 371
+           height: 58
+           color: "#f22c2c"
+           text: qsTr("Label")
+           style: Text.Normal
+           styleColor: "#f20d0d"
+           horizontalAlignment: Text.AlignHCenter
+           font.pointSize: 12
+           font.family: "Verdana"
+           verticalAlignment: Text.AlignVCenter
+       }
       }
-  Button{
-             width: 100
-             height: 30
-             text: qsTr("点击")
-             onClicked: {
-                text = redis.get("lihaoran");
-             }
-         }
+
+      Timer{
+          id: timer
+          running: true
+          repeat: true
+          interval: 100
+          onTriggered: {
+
+              console.log(redis.getCurrentValue())
+
+
+
+              text1.text = redis.get("lihaoran")
+
+          }
+      }
+//  Button{
+//             width: 100
+//             height: 30
+//             text: qsTr("点击")
+//             onClicked: {
+//                text = redis.get("lihaoran");
+//             }
+//         }
 
  Text {
      width: 100
@@ -36,7 +70,7 @@ Window {
      id: text1
      text:
      {
-        "hello world----";
+        "hello world----"+redis.value();
 
      }
  }
