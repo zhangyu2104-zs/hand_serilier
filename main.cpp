@@ -3,6 +3,7 @@
 #include "qmlredisinterface.h"
 #include <qthread.h>
 
+
 /*创建一个线程类*/
 class MyThread : public QThread   //这里创建一个线程的类，
 {                                 // 该类继承于QThread,其中只有一个函数run
@@ -39,6 +40,7 @@ int main(int argc, char *argv[])
 
      qmlRegisterType<QMLRedisInterface>("Redis", 1, 0, "RedisInterface");
 
+
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
@@ -48,7 +50,7 @@ int main(int argc, char *argv[])
     }, Qt::QueuedConnection);
     engine.load(url);
 
-    MyThread thread;
+ //   MyThread thread;
    // thread.start();
 
     return app.exec();

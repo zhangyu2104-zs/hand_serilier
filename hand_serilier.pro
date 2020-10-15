@@ -34,7 +34,17 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
+    Environment {
+        QT_QUICK_CONTROLS_CONF: "qrc:/qtquickcontrols2.conf"
+        QT_AUTO_SCREEN_SCALE_FACTOR: "1"
+    }
 HEADERS += \
     qReader.h \
     qRedis.h \
     qmlredisinterface.h
+
+LIBS  += -lwiringPi
+
+
+
+DISTFILES +=
