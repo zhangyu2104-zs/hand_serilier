@@ -98,7 +98,7 @@ Item {
    onDataChanged:{
             var tempdata = qmlthread.m_data
            // countShow.text = tempdata.toString();
-           console.log("device data--"+tempdata["name"])
+           console.log("device temp=="+tempdata["temp"]+"--infrared_left=="+tempdata["infrared_left"])
     }
    }
    

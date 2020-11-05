@@ -29,12 +29,6 @@ void device_pi::set_power_switch(int p48V_baterry)
     qDebug("p48V-->battery");
 }
 
-//void device_pi::show_demo(int value)
-//{
-//    set_demo(value);
-//    qDebug("demo_value = %d",get_demo());
-//}
-
 
 //-----------------------------------------------------------------
 void device_pi::set_begin(int value)
@@ -82,9 +76,9 @@ float device_pi::get_temperature_sensor_left()
     float temp_debug=0;
 //    ds18b20 temp;
     temp_debug = DS18B20_Get_Temp();
-    temp_debug /= 10;
+    qDebug("temp = %.2f",temp_debug);
+    temp_debug =((float)((int)((temp_debug+0.005)*1000)))/10000;
     return temp_debug;
-//    qDebug("temp = %.2f",temp_debug);
 }
 
 

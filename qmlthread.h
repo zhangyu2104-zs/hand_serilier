@@ -3,6 +3,7 @@
 
 #include <QThread>
 #include "devicedriver.h"
+#include "device_pi.h"
 #include <QVariant>
 #include <QJsonObject>
 
@@ -20,7 +21,7 @@ public slots:
     void  deviceclose();
 
 private:
-    Devicedriver* mydevice;
+    device_pi* myDevice;
     QString msg;
 };
 
