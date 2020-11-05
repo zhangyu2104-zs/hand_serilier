@@ -62,7 +62,7 @@ Rectangle {
     width: Constants.width
     height: Constants.height
 
-    color: "#1a1e25"
+    color: "#000000"
     state: "Standard"
 
     Item {
@@ -93,14 +93,14 @@ Rectangle {
 
             Item {
                 id: navigate
-                x: 892
+                x: 720
                 y: 107
                 width: 200
                 height: 200
 
                 CustomLabel {
                     x: 46
-                    y: 111
+                    y: 90
                     color: "#9d9d9d"
                     text: qsTr("   LOCUS")
                     font.letterSpacing: 1
@@ -109,14 +109,14 @@ Rectangle {
 
                 Image {
                     x: 59
-                    y: 41
+                    y: 11
                     source: "images/nav_nodir.png"
                 }
             }
 
             ModeToggle {
                 id: cruise
-                x: 892
+                x: 720
                 y: 562
             }
 
@@ -555,7 +555,7 @@ Rectangle {
 
             Keyframe {
                 value: "2000"
-                frame: 1000
+                frame: 707
             }
 
             Keyframe {
@@ -565,7 +565,7 @@ Rectangle {
 
             Keyframe {
                 value: 0
-                frame: 1001
+                frame: 655
             }
 
             Keyframe {
@@ -685,7 +685,7 @@ Rectangle {
             target: navigate
             property: "x"
             Keyframe {
-                value: 892
+                value: 720
                 frame: 4101
             }
 
@@ -727,7 +727,7 @@ Rectangle {
             target: cruise
             property: "x"
             Keyframe {
-                value: 892
+                value: 720
                 frame: 4101
             }
 
