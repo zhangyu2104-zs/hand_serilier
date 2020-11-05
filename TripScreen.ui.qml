@@ -62,190 +62,141 @@ Item {
     height: Constants.height
     property alias currentFrame: timeline.currentFrame
 
-    Rectangle {
-        id: leftButton
-        x: 35
-        y: 102
-        width: 22
-        height: 22
-        color: "#00000000"
-        radius: 11
-        border.color: "#696969"
-
-        Image {
-            x: -9
-            y: -9
-            source: "images/arrow_left.png"
-        }
-    }
-
-    Rectangle {
-        id: rightButton
-        x: 1225
-        y: 102
-        width: 22
-        height: 22
-        color: "#00000000"
-        radius: 11
-        border.color: "#696969"
-
-        Image {
-            x: -9
-            y: -9
-            source: "images/arrow_right.png"
-        }
-    }
-
-    Rectangle {
-        id: tripButton
-        x: 590
-        y: 102
-        width: 100
-        height: 24
-        color: "#00000000"
-        radius: 11
-        border.color: "#696969"
-
-        CustomLabel {
-            color: "#ffffff"
-            text: qsTr("End Trip")
-            horizontalAlignment: Text.AlignHCenter
-            anchors.fill: parent
-            font.pixelSize: 18
-        }
-    }
-
-    RowLayout {
-        x: 1154
-        y: 62
-
-        CustomLabel {
-            color: "#9d9d9d"
-            text: qsTr("Total")
-            font.pixelSize: 20
-        }
-
-        CustomLabel {
-            color: "#ffffff"
-            text: (Backend.metricSystem ? "147.4" : "91.6")
-            font.pixelSize: 24
-        }
-
-        CustomLabel {
-            color: "#9d9d9d"
-            text: (Backend.metricSystem ? "km" : "mi.")
-            font.pixelSize: 20
-        }
-    }
-
     GridLayout {
-        x: 35
-        y: 245
-        width: 1212
-        height: 118
-        columnSpacing: 16
-        rows: 3
-        columns: 4
+        x: 44
+        y: 75
+        width: 728
+        height: 147
+        columnSpacing: 1
+        rows: 2
+        columns: 2
 
         CustomLabel {
             color: "#9d9d9d"
-            text: qsTr("Duration (h:m)")
-            font.pixelSize: 24
-        }
-
-        CustomLabel {
-            color: "#ffffff"
-            text: "7:51"
-            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-            font.bold: true
-            horizontalAlignment: Text.AlignHCenter
-            font.pixelSize: 24
+            text: qsTr("距离1")
+            font.pixelSize: 48
         }
 
         CustomLabel {
             color: "#9d9d9d"
-            text: qsTr("Max speed ") + (Backend.metricSystem ? "(km/h)" : "(mph)")
-            horizontalAlignment: Text.AlignHCenter
-            font.pixelSize: 24
-        }
-
-        CustomLabel {
-            color: "#ffffff"
-            text: (Backend.metricSystem ? "37.8" : "23.5")
-            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            font.bold: true
-            font.pixelSize: 24
-        }
-
-        CustomLabel {
-            color: "#9d9d9d"
-            text: qsTr("Distance ") + (Backend.metricSystem ? "(km)" : "(mi.)")
-            font.pixelSize: 24
+            text: qsTr("距离2")
+            font.pixelSize: 48
         }
 
         CustomLabel {
             color: "#ffffff"
             text: (Backend.metricSystem ? "148.8" : "92.5")
-            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-            font.bold: true
-            horizontalAlignment: Text.AlignHCenter
-            font.pixelSize: 24
-        }
 
-        CustomLabel {
-            color: "#9d9d9d"
-            text: qsTr("Avg. speed ") + (Backend.metricSystem ? "(km/h)" : "(mph)")
-            horizontalAlignment: Text.AlignHCenter
-            font.pixelSize: 24
+            font.bold: true
+
+            font.pixelSize: 48
         }
 
         CustomLabel {
             color: "#ffffff"
             text: (Backend.metricSystem ? "18.9" : "11.8")
-            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
+
             font.bold: true
-            font.pixelSize: 24
-        }
-
-        CustomLabel {
-            color: "#9d9d9d"
-            text: qsTr("Calories (kcal)")
-            font.pixelSize: 24
-        }
-
-        CustomLabel {
-            color: "#ffffff"
-            text: "2834.5"
-            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-            font.bold: true
-            horizontalAlignment: Text.AlignHCenter
-            font.pixelSize: 24
-        }
-
-        CustomLabel {
-            color: "#9d9d9d"
-            text: qsTr("Ascent (m)")
-            horizontalAlignment: Text.AlignHCenter
-            font.pixelSize: 24
-        }
-
-        CustomLabel {
-            color: "#ffffff"
-            text: "0.0"
-            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            font.bold: true
-            font.pixelSize: 24
+            font.pixelSize: 48
         }
     }
 
-    Image {
-        id: chart
-        x: 242
-        y: 836
-        source: "maps/chart01.png"
+    GridLayout {
+        x: 36
+        y: 228
+        width: 728
+        height: 147
+        CustomLabel {
+            color: "#9d9d9d"
+            text: qsTr("温度1")
+            font.pixelSize: 48
+        }
+
+        CustomLabel {
+            color: "#9d9d9d"
+            text: qsTr("温度2")
+            font.pixelSize: 48
+        }
+
+        CustomLabel {
+            color: "#ffffff"
+            text: (Backend.metricSystem ? "148.8" : "92.5")
+            font.pixelSize: 48
+            font.bold: true
+        }
+
+        CustomLabel {
+            color: "#ffffff"
+            text: (Backend.metricSystem ? "18.9" : "11.8")
+            font.pixelSize: 48
+            font.bold: true
+        }
+        columns: 2
+        columnSpacing: 1
+        rows: 2
+    }
+
+    GridLayout {
+        x: 36
+        y: 401
+        width: 736
+        height: 147
+        CustomLabel {
+            color: "#9d9d9d"
+            text: qsTr("电压1")
+            font.pixelSize: 48
+        }
+
+        CustomLabel {
+            color: "#9d9d9d"
+            text: qsTr("保留")
+            font.pixelSize: 48
+        }
+
+        CustomLabel {
+            color: "#ffffff"
+            text: (Backend.metricSystem ? "148.8" : "92.5")
+            font.pixelSize: 48
+            font.bold: true
+        }
+
+        CustomLabel {
+            color: "#ffffff"
+            text: (Backend.metricSystem ? "18.9" : "11.8")
+            font.pixelSize: 48
+            font.bold: true
+        }
+        columns: 2
+        columnSpacing: 1
+        rows: 2
+    }
+
+    ColumnLayout {
+        id: col
+        width: 75
+        height: 403
+        anchors.verticalCenterOffset: -9
+        anchors.horizontalCenterOffset: -8
+        spacing: 20
+        //        anchors.fill: parent
+        anchors.centerIn: parent
+
+        Rectangle {
+            id: rec_green
+            width: 50
+            height: 50
+            radius: width / 2
+            color: "green"
+            border.color: Qt.darker(color)
+        }
+        Rectangle {
+            id: rec_yellow
+            width: 50
+            height: 50
+            radius: width / 2
+            color: "yellow"
+            border.color: Qt.darker(color)
+        }
     }
 
     Timeline {
@@ -268,5 +219,23 @@ Item {
                 frame: 1000
             }
         }
+    }
+
+    CustomLabel {
+        id: customLabel
+        x: 590
+        y: 165
+        color: "#9d9d9d"
+        text: qsTr("按钮状态")
+        font.pixelSize: 48
+    }
+
+    CustomLabel {
+        id: customLabel1
+        x: 599
+        y: 342
+        color: "#9d9d9d"
+        text: qsTr("UVC状态")
+        font.pixelSize: 48
     }
 }
