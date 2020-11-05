@@ -14,10 +14,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        device_pi.cpp \
+        devicedriver.cpp \
         main.cpp \
         qReader.cpp \
         qRedis.cpp \
-        qmlredisinterface.cpp
+        qmlredisinterface.cpp \
+        qmlthread.cpp \
+        tcpmodel.cpp
 
 RESOURCES += qml.qrc
 
@@ -39,12 +43,16 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
         QT_AUTO_SCREEN_SCALE_FACTOR: "1"
     }
 HEADERS += \
+    device_pi.h \
+    devicedriver.h \
     qReader.h \
     qRedis.h \
-    qmlredisinterface.h
+    qmlredisinterface.h \
+    qmlthread.h \
+    tcpmodel.h
 
 LIBS  += -lwiringPi
-
-
+OBJECTS_DIR  = tmp
+MOC_DIR      = tmp
 
 DISTFILES +=

@@ -67,7 +67,7 @@ ArcItem {
 
     Timeline {
         id: timeline
-        currentFrame: arcRight.value * 10
+        currentFrame: arcRight.value*2
         endFrame: 1000
         enabled: true
         startFrame: 0
@@ -88,3 +88,9 @@ ArcItem {
         }
     }
 }
+
+/*##^##
+Designer {
+    D{i:1}
+}
+##^##*/

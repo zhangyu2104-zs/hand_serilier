@@ -2,33 +2,15 @@
 #include <QQmlApplicationEngine>
 #include "qmlredisinterface.h"
 #include <qthread.h>
-
-
-/*创建一个线程类*/
-class MyThread : public QThread   //这里创建一个线程的类，
-{                                 // 该类继承于QThread,其中只有一个函数run
-    public:
-    QMLRedisInterface qmlredis  ;
-    virtual void run();    //run函数式该线程的执行函数，也就是说，
-                            //只要这个线程被启动，那么该函数就会被调用
-};
-
-/*一个线程的主函数，循环打印一句话*/
-void MyThread::run()
-{
-    while(1)
-    {
-        qmlredis.init();
-        QVariant tempdata;
-       tempdata = qmlredis.get("lihaoran");
-       qmlredis.setValue(tempdata.toString());
-     //  qmlredis.setServerUrl(tempdata);
-       qDebug() << "thread id :" << QThread::currentThreadId();
-      sleep(1);
-
-    }
-}
-
+#include "devicedriver.h"
+#include <wiringPi.h>
+#include <wiringPiI2C.h>
+#include <math.h>
+#include "qmlthread.h"
+#include "qthread.h"
+#include <QQmlContext>
+#include <QtQml>
+#include "tcpmodel.h"
 
 int main(int argc, char *argv[])
 {
@@ -39,19 +21,48 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
      qmlRegisterType<QMLRedisInterface>("Redis", 1, 0, "RedisInterface");
+     qmlRegisterType<QmlThread>("QmlThread", 1, 0, "QmlThread");
 
+    qmlRegisterType<TcpMoveToThread>("TcpMoveToThread",1,0,"TcpMoveToThread");  //注册QML类
 
     QQmlApplicationEngine engine;
-    const QUrl url(QStringLiteral("qrc:/main.qml"));
-    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
-                     &app, [url](QObject *obj, const QUrl &objUrl) {
-        if (!obj && url == objUrl)
-            QCoreApplication::exit(-1);
-    }, Qt::QueuedConnection);
-    engine.load(url);
+    QMLRedisInterface qmlredisinterface;
+    engine.rootContext()->setContextProperty("qmlredisinterface",&qmlredisinterface);
+    
+    QQmlComponent component(&engine,QUrl(QStringLiteral("qrc:/main.qml")));
+    QObject *object = component.create();
+    
+   QObject::connect(object,SIGNAL(qmlSignal(QString,QString)),&qmlredisinterface,SLOT(Control(QString,QString)));
+   // QMetaObject::invokeMethod(object,"getMessage");
+  //  QObject::connect(&qmlrediscontrol,&QQmlApplicationEngine::begin,&qmlrediscontrol,&QQmlApplicationEngine::doSomething);
+    
+    
+//    const QUrl url(QStringLiteral("qrc:/main.qml"));
+//    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
+//                     &app, [url](QObject *obj, const QUrl &objUrl) {
+//        if (!obj && url == objUrl)
+//            QCoreApplication::exit(-1);
+//    }, Qt::QueuedConnection);
+//    engine.load(url);
+    
+//    QObject *pRoot = engine.rootObjects().first();
+//    QMLRedisInterface *qmlrediss= pRoot->findChild<QMLRedisInterface*>("redisInterface");
+//    qmlrediss->doSomething();
 
- //   MyThread thread;
-   // thread.start();
-
+/*
+   MyThread *thread = new MyThread();
+    QObject::connect(thread,&MyThread::finished,thread,&QObject::deleteLater);
+  //  QObject::connect(thread,&MyThread::finished,this,&QObject::threadFinished);
+   if(thread->isRunning())
+   {
+       qDebug()<<"thread is processing";
+       //return;
+       }
+    QObject::connect(thread, SIGNAL(MyThread::baseData_return()), thread,SLOT(MyThread::dataChangedSlot()));
+    
+    thread->start();
+*/
     return app.exec();
 }
+
+

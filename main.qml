@@ -2,22 +2,33 @@ import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.VirtualKeyboard 2.4
 import QtQuick.Controls 1.2
-import Redis 1.0
 import QtGraphicalEffects 1.0
 import QtQuick.Window 2.10
-
 import "imports/ebikeDesign"
 import "backend/EbikeData"
 
 Window {
     id:win
+    objectName:"win"
     width: Constants.width
     height: Constants.height
-   visible: true
+    visible: true
     ScreenForm {
         id: screen
-
     }
+    signal qmlSignal(string key,string value)
+    signal messageReceived(string data)
+    Component.onCompleted:
+    {
+       win.messageReceived.connect(sendToPost);  
+    }
+    function sendToPost(data)
+    {
+       console.log("message has received")
+    }
+    
+   
+ //   visibility:Window.FullScreen;
     }
 //        BrightnessContrast {
 //            source: screen

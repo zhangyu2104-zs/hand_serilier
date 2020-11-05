@@ -1,3 +1,5 @@
+
+
 /****************************************************************************
 **
 ** Copyright (C) 2019 The Qt Company Ltd.
@@ -47,7 +49,6 @@
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
-
 import QtQuick 2.10
 import "imports/ebikeDesign"
 import "imports/QtQuick/Studio/Components"
@@ -65,7 +66,7 @@ Item {
         id: image
         x: 874
         y: 90
-        source: "images/bike-rearwheel.png"
+        source: "images/device_info.png"
     }
 
     CustomLabel {

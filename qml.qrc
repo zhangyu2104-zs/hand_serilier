@@ -12,7 +12,6 @@
         <file>images/arrow_right.png</file>
         <file>images/assist.png</file>
         <file>images/battery.png</file>
-        <file>images/bike-rearwheel.png</file>
         <file>images/blue_circle_gps_area.png</file>
         <file>images/calories.png</file>
         <file>images/curtain_shadow_handle.png</file>
@@ -160,12 +159,16 @@
         <file>NavigationScreen.ui.qml</file>
         <file>NavigationItem.ui.qml</file>
         <file>TripScreen.ui.qml</file>
-        <file>ModeToggle.ui.qml</file>
-        <file>Light.ui.qml</file>
         <file>Tabbar.qml</file>
         <file>ViewSettings.ui.qml</file>
         <file>GeneralSettings.ui.qml</file>
         <file>BikeInfo.ui.qml</file>
         <file>qtquickcontrols2.conf</file>
+        <file>images/device_info.png</file>
+        <file>Light.qml</file>
+        <file>LightForm.ui.qml</file>
+        <file>ModeToggle.qml</file>
+        <file>ModeToggleForm.ui.qml</file>
+        <file>TestModel.qml</file>
     </qresource>
 </RCC>

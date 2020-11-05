@@ -1,3 +1,5 @@
+
+
 /****************************************************************************
 **
 ** Copyright (C) 2019 The Qt Company Ltd.
@@ -47,7 +49,6 @@
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
-
 import QtQuick 2.10
 import "imports/ebikeDesign"
 import "imports/QtQuick/Studio/Components"
@@ -132,14 +133,14 @@ Item {
             id: image4
             x: 1240
             y: 5
-            source: "images/search_cancel.png"
+            // source: "images/search_cancel.png"
         }
 
         Image {
             id: image3
             x: 1193
             y: 5
-            source: "images/info.png"
+            //  source: "images/info.png"
         }
     }
 
@@ -404,3 +405,8 @@ Item {
     ]
 }
 
+/*##^##
+Designer {
+    D{i:17}
+}
+##^##*/

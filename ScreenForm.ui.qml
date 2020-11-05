@@ -70,8 +70,10 @@ Rectangle {
         width: Constants.width * 3
         height: Constants.height
         x: -Constants.width
+   
 
-        TripScreen {
+       TestModel {
+        //TripScreen {
             id: tripScreen
             currentFrame: 0
             opacity: 0
@@ -100,7 +102,7 @@ Rectangle {
                     x: 46
                     y: 111
                     color: "#9d9d9d"
-                    text: qsTr("NAVIGATE")
+                    text: qsTr("   LOCUS")
                     font.letterSpacing: 1
                     font.pixelSize: 32
                 }
@@ -152,7 +154,7 @@ Rectangle {
                     x: 46
                     y: 83
                     color: "#fdfdfd"
-                    text: qsTr("2699")
+                    text: qsTr("0")
                     font.letterSpacing: 1
                     font.pixelSize: 26
                 }
@@ -161,7 +163,7 @@ Rectangle {
                     x: 46
                     y: 40
                     color: "#9d9d9d"
-                    text: (Backend.metricSystem ? "km" : "mi.")
+                    text: (Backend.metricSystem ? "m" : "in.")
                     font.letterSpacing: 1
                     font.pixelSize: 18
                 }
@@ -170,7 +172,7 @@ Rectangle {
                     x: 46
                     y: 115
                     color: "#9d9d9d"
-                    text: qsTr("kcal")
+                    text: qsTr("area")
                     font.letterSpacing: 1
                     font.pixelSize: 18
                 }
@@ -969,3 +971,10 @@ Rectangle {
         }
     ]
 }
+
+/*##^##
+Designer {
+    D{i:24}
+}
+##^##*/
+

@@ -50,7 +50,7 @@
 
 pragma Singleton
 import QtQuick 2.10
-
+import Redis 1.0
 Item {
     id: backend
 
@@ -59,8 +59,8 @@ Item {
 
     property bool metricSystem: false
     readonly property real ratioMtoKM: 1.609
-    property string speedString: Math.round(backend.metricSystem ? (backend.speed * backend.ratioMtoKM) : backend.speed)
-
+  //  property string speedString: Math.round(backend.metricSystem ? (backend.speed * backend.ratioMtoKM) : backend.speed)
+    property string speedString:(backend.speed+backend.battery)/2
     property real brightness: 0
     property bool showFPS: false
 
@@ -74,6 +74,33 @@ Item {
     property string time: ""
     property date __currentTime: new Date()
 
+
+    RedisInterface{
+       id:redisInterface
+       //onBegin:doSomething()
+       Component.onCompleted:initredis();
+       Component.onDestruction:destroyobject();
+       
+       function initredis()
+       {
+         //console.log("backend redis --create object is--")
+         //redisInterface.insertKey("uvc_out","0");
+       }
+       function destroyobject()
+       {
+         console.log("destroy object is--"+redisInterface)
+         delete redisInterface;
+       }
+    }
+    
+    Connections{
+     target:redisInterface
+     onBegin:{
+        //console.log("speed is--"+strDemo)
+        speed=strDemo;
+     }
+    }
+    
     function resetSettings() {
         backend.metricSystem = false
         backend.brightness = 0
@@ -97,12 +124,16 @@ Item {
     Component.onCompleted: { __timeUpdate() }
 
     Timer {
-        interval: 1000
+        interval: 500
         repeat: true
         running: true
         onTriggered: {
             backend.__currentTime = new Date()
             __timeUpdate()
+            
+            redisInterface.calldata()
+         //   speed=redisInterface.get("speed")
+        //    battery=redisInterface.get("battery")
         }
     }
 
@@ -122,15 +153,16 @@ Item {
         PropertyAnimation {
             target: backend;
             property: "speed";
-            from: 21.0
-            to: 34.0
+//            from: 21.0
+//            to: 34.0
+
             duration: 5000
         }
         PropertyAnimation {
             target: backend;
             property: "speed";
-            from: 34.0
-            to: 21.0
+//            from: 34.0
+//            to: 21.0
             duration: 5000
         }
     }
@@ -143,15 +175,15 @@ Item {
         PropertyAnimation {
             target: backend;
             property: "battery";
-            from: 12.0
-            to: 89.0
+      //      from: 12.0
+     //       to: 89.0
             duration: 50000
         }
         PropertyAnimation {
             target: backend;
             property: "battery";
-            from: 89.0
-            to: 12.0
+      //      from: 89.0
+      //      to: 12.0
             duration: 50000
         }
     }

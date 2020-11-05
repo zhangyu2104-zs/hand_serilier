@@ -54,6 +54,7 @@ import QtQuick.Timeline 1.0
 import "imports/ebikeDesign"
 import "imports/QtQuick/Studio/Components"
 import "backend/EbikeData"
+
 Item {
     id: element
     width: 454
@@ -121,7 +122,7 @@ Item {
             CircleIndicator {
                 id: dot02
                 y: 4
-                checked: true
+                //checked: true
             }
 
             CircleIndicator {
@@ -139,7 +140,7 @@ Item {
             x: 231
             y: 415
             color: "#6d6d6d"
-            text: "0%"
+            text: "0"
             font.pixelSize: 14
         }
 
@@ -148,7 +149,7 @@ Item {
             x: 194
             y: 415
             color: "#6d6d6d"
-            text: "0"
+            text: ""
             font.pixelSize: 14
         }
 
@@ -157,7 +158,7 @@ Item {
             x: 424
             y: 192
             color: "#6d6d6d"
-            text: "50%"
+            text: ""
             anchors.right: parent.right
             font.pixelSize: 14
         }
@@ -167,7 +168,7 @@ Item {
             x: 0
             y: 192
             color: "#6d6d6d"
-            text: (Backend.metricSystem ? "48" : "30")
+            text: (Backend.metricSystem ? "250mm" : "9.8in")
             anchors.left: parent.left
             font.pixelSize: 14
         }
@@ -177,7 +178,7 @@ Item {
             x: 231
             y: 0
             color: "#6d6d6d"
-            text: "100%"
+            text: ""
             font.pixelSize: 14
         }
 
@@ -186,7 +187,7 @@ Item {
             x: 194
             y: 0
             color: "#6d6d6d"
-            text: (Backend.metricSystem ? "96" : "60")
+            text: (Backend.metricSystem ? "500" : "19.6")
             font.pixelSize: 14
         }
 
@@ -223,7 +224,7 @@ Item {
                 width: 40
                 height: 47
                 color: "#6d6d6d"
-                text: qsTr("AVG ") + (Backend.metricSystem ? "km/h" : "mph")
+                text: qsTr("AVG ") + (Backend.metricSystem ? "mm" : "in")
                 anchors.horizontalCenter: parent.horizontalCenter
                 lineHeight: 0.8
                 horizontalAlignment: Text.AlignHCenter
@@ -259,7 +260,7 @@ Item {
                 width: 40
                 height: 70
                 color: "#6d6d6d"
-                text: (Backend.metricSystem ? "km" : "mi.") + qsTr(
+                text: (Backend.metricSystem ? "mm" : "in.") + qsTr(
                           " assist left")
                 anchors.horizontalCenter: parent.horizontalCenter
                 wrapMode: Text.WordWrap
@@ -283,7 +284,7 @@ Item {
             width: 40
             height: 47
             color: "#6d6d6d"
-            text: (Backend.metricSystem ? "km/h" : "mph")
+            text: (Backend.metricSystem ? "mm" : "in.")
             wrapMode: Text.WordWrap
             lineHeight: 0.8
             horizontalAlignment: Text.AlignHCenter
@@ -401,3 +402,10 @@ Item {
         }
     }
 }
+
+/*##^##
+Designer {
+    D{i:28}
+}
+##^##*/
+
