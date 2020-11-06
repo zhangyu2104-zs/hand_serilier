@@ -222,20 +222,7 @@ Item {
         enabled: true
         startFrame: 0
 
-        KeyframeGroup {
-            target: chart
-            property: "y"
-            Keyframe {
-                value: 836
-                frame: 0
-            }
 
-            Keyframe {
-                easing.bezierCurve: [0.39, 0.575, 0.552, 0.809, 1, 1]
-                value: 376
-                frame: 1000
-            }
-        }
     }
 
     CustomLabel {
