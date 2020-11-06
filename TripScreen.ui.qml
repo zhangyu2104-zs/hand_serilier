@@ -55,6 +55,7 @@ import "backend/EbikeData"
 import QtQuick.Controls 2.3
 import QtQuick.Timeline 1.0
 import QtQuick.Layouts 1.3
+import QmlThread 1.0
 
 Item {
     id: tripScreen
@@ -62,6 +63,22 @@ Item {
     height: Constants.height
     property alias currentFrame: timeline.currentFrame
 
+
+  Connections{
+    target:qmlthread
+   onDataChanged:{
+            var tempdata = qmlthread.m_data
+           // countShow.text = tempdata.toString();
+           tempatureleft.text = tempdata["temp"].toFixed(2);
+           range_left.text = tempdata["infrared_left"];
+           
+           console.log("device temp=="+tempdata["temp"]+"--infrared_left=="+tempdata["infrared_left"])
+    }
+   }
+   
+   QmlThread{
+    id:qmlthread
+   }
     GridLayout {
         x: 44
         y: 75
@@ -84,6 +101,7 @@ Item {
         }
 
         CustomLabel {
+            id:range_left
             color: "#ffffff"
             text: (Backend.metricSystem ? "148.8" : "92.5")
 
@@ -119,6 +137,7 @@ Item {
         }
 
         CustomLabel {
+            id:tempatureleft
             color: "#ffffff"
             text: (Backend.metricSystem ? "148.8" : "92.5")
             font.pixelSize: 48

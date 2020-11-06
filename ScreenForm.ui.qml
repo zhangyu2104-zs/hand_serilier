@@ -72,8 +72,8 @@ Rectangle {
         x: -Constants.width
    
 
-       TestModel {
-        //TripScreen {
+      // TestModel {
+        TripScreen {
             id: tripScreen
             currentFrame: 0
             opacity: 0

@@ -77,7 +77,7 @@ float device_pi::get_temperature_sensor_left()
 //    ds18b20 temp;
     temp_debug = DS18B20_Get_Temp();
     qDebug("temp = %.2f",temp_debug);
-    temp_debug =((float)((int)((temp_debug+0.005)*1000)))/10000;
+    temp_debug /=10;
     return temp_debug;
 }
 

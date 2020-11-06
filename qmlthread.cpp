@@ -2,7 +2,7 @@
 #include <QObject>
 #include <wiringPi.h>
 
-#define constrain(value,low,high)((value)<(low)?(low):((value)>(high)?(high):(value)))
+//#define constrain(value,low,high)((value)<(low)?(low):((value)>(high)?(high):(value)))
 
 dataModel::dataModel(QObject* parent)
 {
@@ -30,7 +30,7 @@ void dataModel::devicework()
   {
     QJsonObject tempdata;
     tempdata.insert("temp",myDevice->get_temperature_sensor_left());
-    tempdata.insert("infrared_left",constrain(myDevice->get_infrared_range_left(),-55.0,125.0));
+    tempdata.insert("infrared_left",myDevice->get_infrared_range_left());
  
     emit dataReady(tempdata);
   
