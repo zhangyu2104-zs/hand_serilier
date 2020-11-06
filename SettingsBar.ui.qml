@@ -81,7 +81,7 @@ Item {
 
     Image {
         id: close
-        x: 564
+        x: 453
         y: 44
         source: "images/top_curtain_drag_back.png"
 
@@ -146,7 +146,7 @@ Item {
 
     Image {
         id: open
-        x: 564
+        x: 458
         y: 44
         source: "images/top_curtain_drag.png"
 

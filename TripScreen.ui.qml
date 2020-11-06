@@ -79,11 +79,11 @@ Item {
    QmlThread{
     id:qmlthread
    }
-    GridLayout {
-        x: 44
-        y: 75
+   GridLayout {
+        x: 164
+        y: 115
         width: 728
-        height: 147
+        height: 110
         columnSpacing: 1
         rows: 2
         columns: 2
@@ -101,7 +101,6 @@ Item {
         }
 
         CustomLabel {
-            id:range_left
             color: "#ffffff"
             text: (Backend.metricSystem ? "148.8" : "92.5")
 
@@ -120,10 +119,10 @@ Item {
     }
 
     GridLayout {
-        x: 36
-        y: 228
+        x: 156
+        y: 278
         width: 728
-        height: 147
+        height: 120
         CustomLabel {
             color: "#9d9d9d"
             text: qsTr("温度1")
@@ -137,7 +136,6 @@ Item {
         }
 
         CustomLabel {
-            id:tempatureleft
             color: "#ffffff"
             text: (Backend.metricSystem ? "148.8" : "92.5")
             font.pixelSize: 48
@@ -156,46 +154,46 @@ Item {
     }
 
     GridLayout {
-        x: 36
-        y: 401
+        x: 156
+        y: 436
         width: 736
-        height: 147
+        height: 115
         CustomLabel {
             color: "#9d9d9d"
-            text: qsTr("电压1")
+            text: qsTr("电压")
             font.pixelSize: 48
         }
 
         CustomLabel {
-            color: "#9d9d9d"
-            text: qsTr("保留")
-            font.pixelSize: 48
-        }
+                   color: "#9d9d9d"
+                   text: qsTr("保留")
+                   font.pixelSize: 48
+               }
 
-        CustomLabel {
-            color: "#ffffff"
-            text: (Backend.metricSystem ? "148.8" : "92.5")
-            font.pixelSize: 48
-            font.bold: true
-        }
+               CustomLabel {
+                   color: "#ffffff"
+                   text: (Backend.metricSystem ? "148.8" : "92.5")
+                   font.pixelSize: 48
+                   font.bold: true
+               }
 
-        CustomLabel {
-            color: "#ffffff"
-            text: (Backend.metricSystem ? "18.9" : "11.8")
-            font.pixelSize: 48
-            font.bold: true
-        }
-        columns: 2
-        columnSpacing: 1
-        rows: 2
+               CustomLabel {
+                   color: "#ffffff"
+                   text: (Backend.metricSystem ? "18.9" : "11.8")
+                   font.pixelSize: 48
+                   font.bold: true
+               }
+               columns: 2
+               columnSpacing: 1
+               rows: 2
     }
 
     ColumnLayout {
         id: col
         width: 75
         height: 403
-        anchors.verticalCenterOffset: -9
-        anchors.horizontalCenterOffset: -8
+        anchors.verticalCenterOffset: 1
+        anchors.horizontalCenterOffset: 132
         spacing: 20
         //        anchors.fill: parent
         anchors.centerIn: parent
@@ -242,8 +240,8 @@ Item {
 
     CustomLabel {
         id: customLabel
-        x: 590
-        y: 165
+        x: 717
+        y: 162
         color: "#9d9d9d"
         text: qsTr("按钮状态")
         font.pixelSize: 48
@@ -251,10 +249,11 @@ Item {
 
     CustomLabel {
         id: customLabel1
-        x: 599
-        y: 342
+        x: 718
+        y: 365
         color: "#9d9d9d"
         text: qsTr("UVC状态")
         font.pixelSize: 48
     }
 }
+
