@@ -67,7 +67,7 @@ Item {
 
     SpeedoMeter {
         id: speedoMeter
-        x: 373
+        x: 270
         y: 180
 
         MouseArea {
@@ -139,13 +139,13 @@ Item {
             target: speedoMeter
             property: "x"
             Keyframe {
-                value: 421
+                value: 320
                 frame: 0
             }
 
             Keyframe {
                 easing.bezierCurve: [0.39, 0.575, 0.565, 1, 1, 1]
-                value: 421
+                value: 320
                 frame: 1999
             }
 
@@ -156,7 +156,7 @@ Item {
             }
 
             Keyframe {
-                value: "421"
+                value: "320"
                 frame: 2500
             }
 
