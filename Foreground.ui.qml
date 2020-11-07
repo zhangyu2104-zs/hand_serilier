@@ -68,7 +68,8 @@ Item {
     SpeedoMeter {
         id: speedoMeter
         x: 270
-        y: 180
+        y: 376
+        scale: 0.35
 
         MouseArea {
             id: mouseArea
@@ -187,7 +188,7 @@ Item {
 
             Keyframe {
                 easing.bezierCurve: [0.39, 0.575, 0.565, 1, 1, 1]
-                value: 476
+                value: 376
                 frame: 960
             }
 
@@ -197,12 +198,12 @@ Item {
             }
 
             Keyframe {
-                value: 476
+                value: 376
                 frame: 1017
             }
 
             Keyframe {
-                value: 476
+                value: 376
                 frame: 1000
             }
         }
@@ -223,7 +224,7 @@ Item {
 
             Keyframe {
                 easing.bezierCurve: [0.39, 0.575, 0.565, 1, 1, 1]
-                value: 0.45
+                value: 0.35
                 frame: 960
             }
 
@@ -233,12 +234,12 @@ Item {
             }
 
             Keyframe {
-                value: 0.45
+                value: 0.35
                 frame: 1017
             }
 
             Keyframe {
-                value: 0.45
+                value: 0.35
                 frame: 1000
             }
         }
