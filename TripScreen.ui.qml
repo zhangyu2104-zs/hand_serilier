@@ -101,6 +101,7 @@ Item {
         }
 
         CustomLabel {
+            id:range_left
             color: "#ffffff"
             text: (Backend.metricSystem ? "148.8" : "92.5")
 
@@ -136,6 +137,7 @@ Item {
         }
 
         CustomLabel {
+            id:tempatureleft
             color: "#ffffff"
             text: (Backend.metricSystem ? "148.8" : "92.5")
             font.pixelSize: 48
