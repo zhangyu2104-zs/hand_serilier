@@ -67,7 +67,7 @@ Item {
     Rectangle {
         id: blocker
         x: 0
-        width: Constants.width
+        width: Constants.width-200
         color: "#464646"
         opacity: 0
         anchors.bottom: parent.bottom
@@ -98,7 +98,7 @@ Item {
         id: stack
         x: 0
         y: 44
-        width: Constants.width
+        width: Constants.width-250
         height: 200
         color: "#0d0d0d"
         clip: true
@@ -109,7 +109,7 @@ Item {
 
         StackLayout {
             id: stackLayout
-            width: Constants.width
+            width: Constants.width-250
             currentIndex: tabbar.index
             anchors.fill: parent
 
@@ -125,7 +125,7 @@ Item {
         id: topBar
         x: 0
         y: 0
-        width: Constants.width
+        width: Constants.width-200
         height: 45
         color: "#0d0d0d"
 
